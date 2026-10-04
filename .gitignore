@@ -36,3 +36,6 @@ dist-ssr
 .next
 .extra
 .pnpm-store
+
+# typescript
+*.tsbuildinfo
