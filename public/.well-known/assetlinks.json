@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "id.excitech.quran_ku",
+      "sha256_cert_fingerprints": [
+        "__REPLACE_WITH_PRODUCTION_RELEASE_SHA256_CERT_FINGERPRINT__"
+      ]
+    }
+  }
+]
