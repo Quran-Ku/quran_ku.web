@@ -1,0 +1,21 @@
+{
+  "name": "Quran Ku",
+  "short_name": "Quran Ku",
+  "description": "Al-Quran Digital & Doa Harian",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#086E85",
+  "icons": [
+    {
+      "src": "/logo/app_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo/app_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
