@@ -53,7 +53,11 @@ export function SurahDetailView({ surahNumber, initialAyah }: SurahDetailViewPro
           </div>
         ) : surah ? (
           <div>
-            <SurahHeader surah={surah} onPlayFullAudio={onPlaySurahFull} />
+            <SurahHeader
+              surah={surah}
+              initialAyah={initialAyah}
+              onPlayFullAudio={onPlaySurahFull}
+            />
 
             <ReciterSelector
               selectedReciter={selectedReciter}
