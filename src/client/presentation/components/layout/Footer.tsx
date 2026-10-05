@@ -105,8 +105,22 @@ export function Footer() {
               {t("footer.legal")}
             </h4>
             <ul className="space-y-2.5 text-sm text-gray-600 dark:text-dark-textMuted">
-              <li>{t("footer.privacy")}</li>
-              <li>{t("footer.terms")}</li>
+              <li>
+                <Link
+                  href={ROUTES.PRIVACY_POLICY}
+                  className="hover:text-primary-1 dark:hover:text-primary-3 transition-colors inline-flex items-center gap-1.5"
+                >
+                  {t("footer.privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={ROUTES.TERMS_AND_CONDITIONS}
+                  className="hover:text-primary-1 dark:hover:text-primary-3 transition-colors inline-flex items-center gap-1.5"
+                >
+                  {t("footer.terms")}
+                </Link>
+              </li>
               <li className="pt-2 text-xs text-gray-400 dark:text-dark-textMuted/70 leading-normal">
                 Aplikasi Quran Ku didesain sebagai sarana pendamping ibadah dan pembelajaran mandiri.
               </li>

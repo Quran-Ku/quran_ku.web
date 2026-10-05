@@ -27,6 +27,35 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/terms",
+        destination: "/terms-and-condition",
+        permanent: true,
+      },
+      {
+        source: "/terms-and-conditions",
+        destination: "/terms-and-condition",
+        permanent: true,
+      },
+      {
+        source: "/snk/quran-ku",
+        destination: "/terms-and-condition",
+        permanent: true,
+      },
+      {
+        source: "/privacy",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+      {
+        source: "/kebijakan-privasi",
+        destination: "/privacy-policy",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
