@@ -4,7 +4,8 @@ export const DEEP_LINK_SCHEMES = {
   HTTPS: "https",
 } as const;
 
-export const DEEP_LINK_HOST = "quran-ku.com";
+export const DEEP_LINK_HOST =
+  process.env.NEXT_PUBLIC_DEEP_LINK_HOST || "quran-ku.com";
 
 export const DEEP_LINK_ROUTES = {
   HOME: `${DEEP_LINK_SCHEMES.CUSTOM}://${DEEP_LINK_HOST}`,

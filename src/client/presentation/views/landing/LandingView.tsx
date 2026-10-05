@@ -4,6 +4,7 @@ import React from "react";
 import { useLanding } from "./hooks/useLanding";
 import { HeroSection } from "./components/HeroSection";
 import { FeatureCardsSection } from "./components/FeatureCardsSection";
+import { AppSlidesSection } from "./components/AppSlidesSection";
 import { QuranPreviewSection } from "./components/QuranPreviewSection";
 import { DoaPreviewSection } from "./components/DoaPreviewSection";
 import { MobileAppCtaSection } from "./components/MobileAppCtaSection";
@@ -33,6 +34,7 @@ export function LandingView() {
     <main className="min-h-screen bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-textPrimary">
       <HeroSection onPlaySample={handlePlayHeroSample} />
       <FeatureCardsSection />
+      <AppSlidesSection />
       <QuranPreviewSection
         surahs={surahs}
         loading={loading}

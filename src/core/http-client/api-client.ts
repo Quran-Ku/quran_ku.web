@@ -17,7 +17,7 @@ export interface PostRequestOptions<TBody> extends RequestOptions {
 export class ApiClient {
   private readonly baseUrl: string;
 
-  constructor(baseUrl: string = "") {
+  constructor(baseUrl: string = process.env.NEXT_PUBLIC_API_BASE_URL || "") {
     this.baseUrl = baseUrl;
   }
 
@@ -28,11 +28,11 @@ export class ApiClient {
     const fullUrl = this.baseUrl ? `${this.baseUrl}${endpoint}` : endpoint;
     if (!params) return fullUrl;
 
+    const fallbackOrigin =
+      process.env.NEXT_PUBLIC_APP_URL || "https://quran-ku.com";
     const url = new URL(
       fullUrl,
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://quran-ku.com"
+      typeof window !== "undefined" ? window.location.origin : fallbackOrigin
     );
 
     Object.entries(params).forEach(([key, value]) => {
