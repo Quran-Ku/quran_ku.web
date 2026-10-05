@@ -8,6 +8,10 @@ export const LANDING_TEXT = {
   featuresHeading: "features.heading",
   featuresSubheading: "features.subheading",
 
+  slidesHeading: "slides.heading",
+  slidesSubheading: "slides.subheading",
+  slidesBadge: "slides.badge",
+
   quranPreviewTitle: "quran.preview.title",
   quranPreviewSubtitle: "quran.preview.subtitle",
 
@@ -17,3 +21,4 @@ export const LANDING_TEXT = {
   ctaHeading: "cta.heading",
   ctaSubheading: "cta.subheading",
 } as const;
+
