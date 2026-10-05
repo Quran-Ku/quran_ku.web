@@ -7,4 +7,6 @@ export const ROUTES = {
   DOA: "/doa",
   DOA_DETAIL: (slug: string) => `/doa/${slug}`,
   OPEN_APP: "/open",
+  TERMS_AND_CONDITIONS: "/terms-and-condition",
+  PRIVACY_POLICY: "/privacy-policy",
 } as const;
