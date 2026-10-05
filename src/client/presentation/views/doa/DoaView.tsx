@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "@/client/presentation/components/ui/Container";
 import { Input } from "@/client/presentation/components/ui/Input";
 import { useDoaList } from "./hooks/useDoaList";
@@ -8,9 +8,13 @@ import { DoaCard } from "./components/DoaCard";
 import { Pagination } from "@/client/presentation/components/ui/Pagination";
 import { useTranslator } from "@/core/translator";
 import { Heart, Search } from "lucide-react";
+import { autoRedirectToAppIfMobile } from "@/core/utils/open-app";
 
 export function DoaView() {
   const { t } = useTranslator();
+  useEffect(() => {
+    autoRedirectToAppIfMobile("/doa");
+  }, []);
   const {
     doas,
     paginatedDoas,

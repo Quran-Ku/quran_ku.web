@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "@/client/presentation/components/ui/Container";
 import { useSurahDetail } from "./hooks/useSurahDetail";
 import { SurahHeader } from "./components/SurahHeader";
@@ -9,6 +9,7 @@ import { ReciterSelector } from "./components/ReciterSelector";
 import { AudioPlayerBar } from "@/client/presentation/components/audio/AudioPlayerBar";
 import { AVAILABLE_RECITERS } from "@/client/domain/quran/entity/reciter";
 import { SURAH_SEMANTIC_IDS } from "./constants/SemanticIdConstant";
+import { autoRedirectToAppIfMobile } from "@/core/utils/open-app";
 
 export interface SurahDetailViewProps {
   surahNumber: number;
@@ -16,6 +17,12 @@ export interface SurahDetailViewProps {
 }
 
 export function SurahDetailView({ surahNumber, initialAyah }: SurahDetailViewProps) {
+  useEffect(() => {
+    const targetPath = initialAyah
+      ? `/quran/${surahNumber}?ayah=${initialAyah}`
+      : `/quran/${surahNumber}`;
+    autoRedirectToAppIfMobile(targetPath);
+  }, [surahNumber, initialAyah]);
   const {
     surah,
     loading,
@@ -53,7 +60,11 @@ export function SurahDetailView({ surahNumber, initialAyah }: SurahDetailViewPro
           </div>
         ) : surah ? (
           <div>
-            <SurahHeader surah={surah} onPlayFullAudio={onPlaySurahFull} />
+            <SurahHeader
+              surah={surah}
+              initialAyah={initialAyah}
+              onPlayFullAudio={onPlaySurahFull}
+            />
 
             <ReciterSelector
               selectedReciter={selectedReciter}

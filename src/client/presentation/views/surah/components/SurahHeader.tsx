@@ -12,10 +12,11 @@ import { ArrowLeft, Volume2, Share2 } from "lucide-react";
 
 export interface SurahHeaderProps {
   surah: QuranSurah;
+  initialAyah?: number;
   onPlayFullAudio?: () => void;
 }
 
-export function SurahHeader({ surah, onPlayFullAudio }: SurahHeaderProps) {
+export function SurahHeader({ surah, initialAyah, onPlayFullAudio }: SurahHeaderProps) {
   const { t } = useTranslator();
 
   const handleShare = () => {
@@ -55,6 +56,7 @@ export function SurahHeader({ surah, onPlayFullAudio }: SurahHeaderProps) {
           </button>
           <OpenInAppButton
             surahNumber={surah.number}
+            ayahNumber={initialAyah}
             size="sm"
             variant="secondary"
             className="bg-white text-primary-1 hover:bg-gray-100 font-bold"

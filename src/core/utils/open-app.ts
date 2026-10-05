@@ -39,6 +39,46 @@ export function createDeepLinkFromWebPath(path: string): string {
 }
 
 /**
+ * Check if the current environment is a mobile screen width or mobile browser
+ */
+export function isMobileDevice(): boolean {
+  if (typeof window === "undefined") return false;
+  const isNarrowScreen = window.innerWidth <= 768;
+  const isMobileUA =
+    typeof navigator !== "undefined" &&
+    /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent || ""
+    );
+  return isNarrowScreen || isMobileUA;
+}
+
+/**
+ * Auto-attempt deep link redirect if on mobile screen / platform
+ */
+export function autoRedirectToAppIfMobile(targetPath: string): void {
+  if (typeof window === "undefined") return;
+  if (!isMobileDevice()) return;
+
+  try {
+    const sessionKey = `attempted_open_${targetPath}`;
+    if (sessionStorage.getItem(sessionKey)) {
+      return;
+    }
+    sessionStorage.setItem(sessionKey, "1");
+  } catch {
+    // ignore sessionStorage errors
+  }
+
+  const appUrl = createDeepLinkFromWebPath(targetPath);
+  setTimeout(() => {
+    openQuranKuApp({
+      appUrl,
+      webFallback: targetPath,
+    });
+  }, 100);
+}
+
+/**
  * Browser-safe invocation to trigger app deep link with fallback
  */
 export function openQuranKuApp(options: OpenAppOptions): void {
